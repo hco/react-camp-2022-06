@@ -4,9 +4,7 @@ interface Props {
   comment: string;
 }
 
-const TimeEntryView: React.FunctionComponent<Props> = ({
-  comment,
-}: Props): React.ReactElement => {
+const TimeEntryView: React.FunctionComponent<Props> = ({ comment }) => {
   return <div>{comment}</div>;
 };
 
