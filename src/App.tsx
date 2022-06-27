@@ -1,11 +1,9 @@
 import TimeEntryView from "./components/TimeEntryView";
-import { ComponentProps } from "react";
-
-type TimeEntryViewProps = ComponentProps<typeof TimeEntryView>;
+import { TimeEntry } from "./domain/TimeEntry";
 
 function App() {
-  const timeEntry: TimeEntryViewProps["timeEntry"] = {
-    comment: "React lernen",
+  const timeEntry: TimeEntry = {
+    comment: "React gelernt",
     id: "",
     start: new Date(),
     end: new Date(),
