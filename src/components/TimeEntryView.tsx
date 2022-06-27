@@ -1,11 +1,12 @@
 import React from "react";
-import { SimpleFunctionComponent } from "./GenericExample";
 
 interface Props {
   comment: string;
 }
 
-const TimeEntryView: SimpleFunctionComponent<Props> = ({ comment }) => {
+const TimeEntryView: React.FunctionComponent<Props> = ({
+  comment,
+}: Props): React.ReactElement => {
   return <div>{comment}</div>;
 };
 
