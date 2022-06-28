@@ -1,6 +1,7 @@
 import TimeEntryForm from "./components/TimeEntryForm";
 import TimeEntryView from "./components/TimeEntryView";
 import { TimeEntry } from "./domain/TimeEntry";
+import Counter from "./components/Counter";
 
 function App() {
   const timeEntry: TimeEntry = {
@@ -15,6 +16,7 @@ function App() {
       <h1>Ich bin Christian</h1>
       <TimeEntryView timeEntry={timeEntry} />
       <TimeEntryForm />
+      <Counter />
     </>
   );
 }
