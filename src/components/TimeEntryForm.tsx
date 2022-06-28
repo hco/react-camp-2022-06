@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { TimeEntry } from "../domain/TimeEntry";
 
 type Props = {
-  onEntryAdd: (timeEntry: TimeEntry) => void;
+  onCreateEntry: (timeEntry: TimeEntry) => void;
 };
 
-const TimeEntryForm: React.FunctionComponent<Props> = ({ onEntryAdd }) => {
+const TimeEntryForm: React.FunctionComponent<Props> = ({ onCreateEntry }) => {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     console.log("Hello World");
-    onEntryAdd({
+    onCreateEntry({
       comment: inputValue,
       id: new Date().toISOString(),
       start: new Date(),
