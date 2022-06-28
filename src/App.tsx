@@ -3,6 +3,7 @@ import TimeEntryView from "./components/TimeEntryView";
 import { TimeEntry } from "./domain/TimeEntry";
 import Counter from "./components/Counter";
 import JavaScriptComponent from "./components/JavaScriptComponent";
+import GithubRepoStats from "./components/GithubRepoStats";
 
 function App() {
   const timeEntry: TimeEntry = {
@@ -19,6 +20,7 @@ function App() {
       <TimeEntryForm />
       <Counter />
       <JavaScriptComponent />
+      <GithubRepoStats />
     </>
   );
 }
