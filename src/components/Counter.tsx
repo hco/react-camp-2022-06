@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
+  const isCountBiggerThanThree = count > 3;
+  // fetch();
+  useEffect(() => {
+    // alert("Hallo Browser!");
+  }, [isCountBiggerThanThree]);
 
   return (
     <div>
