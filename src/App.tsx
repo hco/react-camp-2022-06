@@ -15,11 +15,15 @@ function App() {
     end: new Date(),
   };
 
+  const handleEntryAdd = (timeEntry: TimeEntry) => {
+    console.log("time entry from App", timeEntry);
+  };
+
   return (
     <>
       <h1>Ich bin Christian</h1>
       <TimeEntryView timeEntry={timeEntry} />
-      <TimeEntryForm />
+      <TimeEntryForm onEntryAdd={handleEntryAdd} />
       <Counter />
       <JavaScriptComponent />
       <GithubRepoStats repo="facebook/react" />

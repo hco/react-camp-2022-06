@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { TimeEntry } from "../domain/TimeEntry";
 
-const TimeEntryForm: React.FunctionComponent = () => {
+type Props = {
+  onEntryAdd: (timeEntry: TimeEntry) => void;
+};
+
+const TimeEntryForm: React.FunctionComponent<Props> = () => {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
