@@ -19,7 +19,7 @@ const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
       .then((response) => response.json())
       // .then((value) => setRepoInformation(value));
       .then(setRepoInformation); // Das gleiche wie die vorherige Zeile
-  }, []);
+  }, [props.repo]);
 
   if (!repoInformation) {
     return <div>Loading…</div>;
@@ -27,7 +27,7 @@ const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
 
   return (
     <div>
-      {props.repo} hat {repoInformation.stargazers_count.toLocaleString()}{" "}
+      {props.repo} hat {repoInformation.stargazers_count?.toLocaleString()}{" "}
       Sternchen!
     </div>
   );

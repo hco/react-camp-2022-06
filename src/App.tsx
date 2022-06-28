@@ -4,6 +4,7 @@ import { TimeEntry } from "./domain/TimeEntry";
 import Counter from "./components/Counter";
 import JavaScriptComponent from "./components/JavaScriptComponent";
 import GithubRepoStats from "./components/GithubRepoStats";
+import DynamicGithubRepoStats from "./components/DynamicGithubRepoStats";
 
 function App() {
   const timeEntry: TimeEntry = {
@@ -22,6 +23,10 @@ function App() {
       <JavaScriptComponent />
       <GithubRepoStats repo="facebook/react" />
       <GithubRepoStats repo="angular/angular" />
+      <GithubRepoStats repo="" />
+
+      <hr />
+      <DynamicGithubRepoStats />
     </>
   );
 }
