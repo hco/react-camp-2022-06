@@ -5,6 +5,7 @@ import Counter from "./components/Counter";
 import JavaScriptComponent from "./components/JavaScriptComponent";
 import GithubRepoStats from "./components/GithubRepoStats";
 import DynamicGithubRepoStats from "./components/DynamicGithubRepoStats";
+import TimeEntriesList from "./components/TimeEntriesList";
 
 function App() {
   const timeEntry: TimeEntry = {
@@ -27,6 +28,7 @@ function App() {
 
       <hr />
       <DynamicGithubRepoStats />
+      <TimeEntriesList />
     </>
   );
 }
