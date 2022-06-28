@@ -6,7 +6,13 @@ const Counter = () => {
   return (
     <div>
       <p>Aktueller Wert: {count}</p>
-      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+      <button
+        onClick={() =>
+          setCount(function (prevCount) {
+            return prevCount + 1;
+          })
+        }
+      >
         Increment!
       </button>
     </div>
