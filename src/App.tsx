@@ -18,7 +18,7 @@ function App() {
       <TimeEntryView timeEntry={timeEntry} />
       <TimeEntryForm />
       <Counter />
-      <JavaScriptComponent name="Stefan" />
+      <JavaScriptComponent />
     </>
   );
 }
