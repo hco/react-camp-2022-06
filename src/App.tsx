@@ -1,3 +1,4 @@
+import TimeEntryForm from "./components/TimeEntryForm";
 import TimeEntryView from "./components/TimeEntryView";
 import { TimeEntry } from "./domain/TimeEntry";
 
@@ -13,6 +14,7 @@ function App() {
     <>
       <h1>Ich bin Christian</h1>
       <TimeEntryView timeEntry={timeEntry} />
+      <TimeEntryForm />
     </>
   );
 }
