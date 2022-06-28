@@ -12,10 +12,8 @@ const GithubRepoStats: React.FunctionComponent = () => {
   useEffect(() => {
     fetch("https://api.github.com/repos/facebook/react")
       .then((response) => response.json())
-      .then((value) => {
-        console.log(value);
-        setRepoInformation(value);
-      });
+      // .then((value) => setRepoInformation(value));
+      .then(setRepoInformation); // Das gleiche wie die vorherige Zeile
   }, []);
 
   if (!repoInformation) {
