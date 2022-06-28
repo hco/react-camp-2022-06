@@ -33,7 +33,7 @@ function App() {
   ]);
 
   const handleCreateEntry = (timeEntry: TimeEntry) => {
-    setTimeEntries([...timeEntries, timeEntry]);
+    setTimeEntries((prevTimeEntries) => [...prevTimeEntries, timeEntry]);
   };
 
   return (
