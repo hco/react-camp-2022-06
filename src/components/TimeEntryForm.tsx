@@ -5,11 +5,17 @@ type Props = {
   onEntryAdd: (timeEntry: TimeEntry) => void;
 };
 
-const TimeEntryForm: React.FunctionComponent<Props> = () => {
+const TimeEntryForm: React.FunctionComponent<Props> = ({ onEntryAdd }) => {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     console.log("Hello World");
+    onEntryAdd({
+      comment: inputValue,
+      id: new Date().toISOString(),
+      start: new Date(),
+      end: new Date(),
+    });
   };
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
