@@ -20,7 +20,8 @@ function App() {
       <TimeEntryForm />
       <Counter />
       <JavaScriptComponent />
-      <GithubRepoStats />
+      <GithubRepoStats repo="facebook/react" />
+      <GithubRepoStats repo="angular/angular" />
     </>
   );
 }
