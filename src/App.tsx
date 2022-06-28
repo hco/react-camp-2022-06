@@ -1,10 +1,5 @@
 import TimeEntryForm from "./components/TimeEntryForm";
-import TimeEntryView from "./components/TimeEntryView";
 import { TimeEntry } from "./domain/TimeEntry";
-import Counter from "./components/Counter";
-import JavaScriptComponent from "./components/JavaScriptComponent";
-import GithubRepoStats from "./components/GithubRepoStats";
-import DynamicGithubRepoStats from "./components/DynamicGithubRepoStats";
 import TimeEntriesList from "./components/TimeEntriesList";
 import { useState } from "react";
 
@@ -43,17 +38,7 @@ function App() {
 
   return (
     <>
-      <h1>Ich bin Christian</h1>
-      <TimeEntryView timeEntry={timeEntry} />
       <TimeEntryForm onCreateEntry={handleCreateEntry} />
-      <Counter />
-      <JavaScriptComponent />
-      <GithubRepoStats repo="facebook/react" />
-      <GithubRepoStats repo="angular/angular" />
-      <GithubRepoStats repo="" />
-
-      <hr />
-      <DynamicGithubRepoStats />
       <TimeEntriesList timeEntries={timeEntries} />
     </>
   );
