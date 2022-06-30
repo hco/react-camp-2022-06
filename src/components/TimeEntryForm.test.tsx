@@ -22,4 +22,28 @@ describe("<TimeEntryForm />", () => {
       screen.getByText(/react-testing lernen/i);
     }
   );
+
+  test("submitting the form fires the event", () => {
+    const onCreateEntryMock = jest.fn();
+    render(<TimeEntryForm onCreateEntry={onCreateEntryMock} />);
+
+    const commentField = screen.getByRole("textbox", {
+      name: /kommentar/i,
+    });
+
+    userEvent.type(commentField, "React-Testing lernen");
+
+    userEvent.click(
+      screen.getByRole("button", {
+        name: /hinzufügen/i,
+      })
+    );
+
+    expect(onCreateEntryMock).toHaveBeenCalledTimes(1);
+    expect(onCreateEntryMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        comment: "React-Testing lernen",
+      })
+    );
+  });
 });
