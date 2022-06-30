@@ -11,7 +11,16 @@ type Props = {
 };
 
 const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
-  const { repoStats, loading } = useGithubRepoStatsReactQuery(props.repo);
+  const { repoStats, loading, error } = useGithubRepoStatsReactQuery(
+    props.repo
+  );
+
+  if (error) {
+    if (error.message) {
+      return <div>{error.message}</div>;
+    }
+    return <div>Unknown error.</div>;
+  }
 
   if (loading || !repoStats) {
     return <div>Loading…</div>;
@@ -19,7 +28,8 @@ const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
 
   return (
     <div>
-      {props.repo} hat {repoStats.stargazers_count.toLocaleString()} Sternchen!
+      {JSON.stringify(error)}
+      {props.repo} hat {repoStats.stargazers_count?.toLocaleString()} Sternchen!
     </div>
   );
 };

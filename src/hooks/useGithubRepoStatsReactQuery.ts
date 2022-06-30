@@ -7,18 +7,24 @@ type RepoInformation = {
 
 const useGithubRepoStatsReactQuery = (repoName: string) => {
   const { data, isLoading, error } = useQuery(
-    "repoInformation",
+    ["repoInformation", repoName],
     (): Promise<RepoInformation> => {
-      return fetch("https://api.github.com/repos/" + repoName).then(
-        (response) => response.json()
-      );
+      return fetch(
+        "https://api.github.com/repos/" + repoName + "?_ts" + Date.now()
+      ).then(async (response) => {
+        console.log(response);
+        if (response.status >= 400) {
+          throw await response.json();
+        }
+        return response.json();
+      });
     }
   );
 
   return {
     repoStats: data,
     loading: isLoading,
-    error: error,
+    error: error as any,
   };
 };
 
