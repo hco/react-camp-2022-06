@@ -26,7 +26,10 @@ const TimeEntryForm: React.FunctionComponent<Props> = ({ onCreateEntry }) => {
   return (
     <form onSubmit={handleSubmit}>
       <button type="submit">Hinzufügen</button>
-      <input type="text" onChange={handleChange} />
+      <label>
+        Kommentar
+        <input type="text" onChange={handleChange} />
+      </label>
       {inputValue}
     </form>
   );
