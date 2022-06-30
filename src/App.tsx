@@ -2,6 +2,9 @@ import TimeEntryForm from "./components/TimeEntryForm";
 import TimeEntriesList from "./components/TimeEntriesList";
 import useTimeEntries from "./hooks/useTimeEntries";
 import GithubRepoStats from "./components/GithubRepoStats";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   const { timeEntries, addTimeEntry } = useTimeEntries([
@@ -14,11 +17,11 @@ function App() {
   ]);
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <GithubRepoStats repo="facebook/react" />
       <TimeEntryForm onCreateEntry={addTimeEntry} />
       <TimeEntriesList timeEntries={timeEntries} />
-    </>
+    </QueryClientProvider>
   );
 }
 
