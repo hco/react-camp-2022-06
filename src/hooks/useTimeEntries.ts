@@ -1,8 +1,8 @@
 import { TimeEntry } from "../domain/TimeEntry";
 import { useState } from "react";
 
-const useTimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState<TimeEntry[]>([]);
+const useTimeEntries = (initialState: TimeEntry[] = []) => {
+  const [timeEntries, setTimeEntries] = useState<TimeEntry[]>(initialState);
 
   return {
     timeEntries: timeEntries,

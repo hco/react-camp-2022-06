@@ -3,7 +3,14 @@ import TimeEntriesList from "./components/TimeEntriesList";
 import useTimeEntries from "./hooks/useTimeEntries";
 
 function App() {
-  const { timeEntries, addTimeEntry } = useTimeEntries();
+  const { timeEntries, addTimeEntry } = useTimeEntries([
+    {
+      id: "1d5829",
+      comment: "Listen rendern in react gelernt.",
+      start: new Date(),
+      end: new Date(),
+    },
+  ]);
 
   return (
     <>
