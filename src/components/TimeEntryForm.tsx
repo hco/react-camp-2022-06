@@ -9,6 +9,11 @@ const TimeEntryForm: React.FunctionComponent<Props> = ({ onCreateEntry }) => {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
+
+    if (inputValue.trim() === "") {
+      return;
+    }
+
     onCreateEntry({
       comment: inputValue,
       id: new Date().toISOString(),
