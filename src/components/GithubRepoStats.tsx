@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useGithubRepoStats from "../hooks/useGithubRepoStats";
 
 type RepoInformation = {
   stargazers_count: number;
@@ -9,23 +10,15 @@ type Props = {
 };
 
 const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
-  const [repoInformation, setRepoInformation] = useState<RepoInformation>();
+  const { repoStats } = useGithubRepoStats(props.repo);
 
-  useEffect(() => {
-    fetch("https://api.github.com/repos/" + props.repo)
-      .then((response) => response.json())
-      // .then((value) => setRepoInformation(value));
-      .then(setRepoInformation); // Das gleiche wie die vorherige Zeile
-  }, [props.repo]);
-
-  if (!repoInformation) {
+  if (!repoStats) {
     return <div>Loading…</div>;
   }
 
   return (
     <div>
-      {props.repo} hat {repoInformation.stargazers_count?.toLocaleString()}{" "}
-      Sternchen!
+      {props.repo} hat {repoStats.stargazers_count?.toLocaleString()} Sternchen!
     </div>
   );
 };

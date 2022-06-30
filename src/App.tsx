@@ -1,6 +1,7 @@
 import TimeEntryForm from "./components/TimeEntryForm";
 import TimeEntriesList from "./components/TimeEntriesList";
 import useTimeEntries from "./hooks/useTimeEntries";
+import GithubRepoStats from "./components/GithubRepoStats";
 
 function App() {
   const { timeEntries, addTimeEntry } = useTimeEntries([
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+      <GithubRepoStats repo="facebook/react" />
       <TimeEntryForm onCreateEntry={addTimeEntry} />
       <TimeEntriesList timeEntries={timeEntries} />
     </>
