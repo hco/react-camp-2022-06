@@ -3,6 +3,8 @@ import TimeEntriesList from "./components/TimeEntriesList";
 import useTimeEntries from "./hooks/useTimeEntries";
 import GithubRepoStats from "./components/GithubRepoStats";
 import { QueryClient, QueryClientProvider } from "react-query";
+import DynamicGithubRepoStats from "./components/DynamicGithubRepoStats";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +20,11 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <GithubRepoStats repo="facebook/react" />
+      <GithubRepoStats repo="facebook/react" />
+      <GithubRepoStats repo="facebook/react" />
+      <DynamicGithubRepoStats />
       <TimeEntryForm onCreateEntry={addTimeEntry} />
       <TimeEntriesList timeEntries={timeEntries} />
     </QueryClientProvider>
