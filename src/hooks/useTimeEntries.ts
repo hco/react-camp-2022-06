@@ -10,7 +10,9 @@ const useTimeEntries = () => {
       setTimeEntries((prevTimeEntries) => [...prevTimeEntries, timeEntry]);
     },
     removeTimeEntry: (timeEntry: TimeEntry) => {
-      setTimeEntries(timeEntries.filter((t) => t.id !== timeEntry.id));
+      setTimeEntries((prevTimeEntries) =>
+        prevTimeEntries.filter((t) => t.id !== timeEntry.id)
+      );
     },
   };
 };
