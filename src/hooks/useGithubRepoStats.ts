@@ -6,16 +6,29 @@ type RepoInformation = {
 
 const useGithubRepoStats = (repoName: string) => {
   const [repoInformation, setRepoInformation] = useState<RepoInformation>();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<any>();
 
   useEffect(() => {
+    setRepoInformation(undefined);
+    setLoading(true);
+
     fetch("https://api.github.com/repos/" + repoName)
       .then((response) => response.json())
-      .then(setRepoInformation);
+      .then((repoInformation) => {
+        setLoading(false);
+        setRepoInformation(repoInformation);
+      })
+      .catch(() => {
+        setLoading(false);
+        setError(true);
+      });
   }, [repoName]);
 
   return {
     repoStats: repoInformation,
-    loading: true,
+    loading: loading,
+    error: error,
   };
 };
 

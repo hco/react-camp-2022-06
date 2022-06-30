@@ -10,15 +10,15 @@ type Props = {
 };
 
 const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
-  const { repoStats } = useGithubRepoStats(props.repo);
+  const { repoStats, loading } = useGithubRepoStats(props.repo);
 
-  if (!repoStats) {
+  if (loading || !repoStats) {
     return <div>Loading…</div>;
   }
 
   return (
     <div>
-      {props.repo} hat {repoStats.stargazers_count?.toLocaleString()} Sternchen!
+      {props.repo} hat {repoStats.stargazers_count.toLocaleString()} Sternchen!
     </div>
   );
 };
