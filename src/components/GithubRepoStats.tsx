@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useGithubRepoStats from "../hooks/useGithubRepoStats";
+import useGithubRepoStatsReactQuery from "../hooks/useGithubRepoStatsReactQuery";
 
 type RepoInformation = {
   stargazers_count: number;
@@ -10,7 +11,7 @@ type Props = {
 };
 
 const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
-  const { repoStats, loading } = useGithubRepoStats(props.repo);
+  const { repoStats, loading } = useGithubRepoStatsReactQuery(props.repo);
 
   if (loading || !repoStats) {
     return <div>Loading…</div>;
