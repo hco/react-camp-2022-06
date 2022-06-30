@@ -1,5 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import GithubRepoStats from "./GithubRepoStats";
+import { setupServer } from "msw/node";
+import { githubFacebookReact } from "../mocks/github/facebook_react";
+
+export const server = setupServer(githubFacebookReact);
+// Establish API mocking before all tests.
+beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+// Clean up after the tests are finished.
+afterAll(() => server.close());
 
 describe("<GithubRepoStats />", () => {
   test("renders without crashing", () => {
