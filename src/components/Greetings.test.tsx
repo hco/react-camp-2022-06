@@ -24,4 +24,10 @@ describe("<Greeting />", () => {
     // eslint-disable-next-line testing-library/no-node-access
     expect(container?.firstChild).toHaveTextContent("Hello, Danny!");
   });
+
+  test("it renders according to snapshot", () => {
+    const { container } = render(<Greeting name="Danny" />);
+
+    expect(container).toMatchSnapshot();
+  });
 });

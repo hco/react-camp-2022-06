@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Greeting /> it renders according to snapshot 1`] = `
+<div>
+  <p>
+    Hello, 
+    Danny
+    !
+  </p>
+</div>
+`;
+
+exports[`<Greeting /> it renders according to snapshot: 
+      <div>
+        <p>
+          Hello, 
+          Danny
+          !
+        </p>
+      </div>
+     1`] = `
+<div>
+  <p>
+    Hello, 
+    Danny
+    !
+  </p>
+</div>
+`;
