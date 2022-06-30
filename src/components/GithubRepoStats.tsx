@@ -11,9 +11,6 @@ type Props = {
 const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
   const [repoInformation, setRepoInformation] = useState<RepoInformation>();
 
-  if (repoInformation) {
-    console.log(repoInformation);
-  }
   useEffect(() => {
     fetch("https://api.github.com/repos/" + props.repo)
       .then((response) => response.json())
