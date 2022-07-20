@@ -8,5 +8,11 @@ describe("<TimeEntryForm />", () => {
 
   test("it renders a button and an input field", () => {
     render(<TimeEntryForm onCreateEntry={() => {}} />);
+
+    screen.getByRole("button", {
+      name: /hinzufügen/i,
+    });
+
+    screen.getByRole("textbox");
   });
 });
