@@ -1,9 +1,16 @@
 import { TimeEntry } from "../domain/TimeEntry";
+import { useState } from "react";
 
 const useTimeEntries = () => {
+  const [timeEntries, setTimeEntries] = useState<TimeEntry[]>([]);
+
+  const addTimeEntry = (timeEntry: TimeEntry) => {
+    setTimeEntries((prevTimeEntries) => [...prevTimeEntries, timeEntry]);
+  };
+
   return {
-    timeEntries: [],
-    addTimeEntry: (timeEntry: TimeEntry) => {},
+    timeEntries: timeEntries,
+    addTimeEntry: addTimeEntry,
   };
 };
 
