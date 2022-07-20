@@ -39,4 +39,10 @@ describe("<Greeting />", () => {
 
     // screen.debug(container);
   });
+
+  test("it renders according to snapshot", () => {
+    const { container } = render(<Greeting name="Darko" />);
+
+    expect(container).toMatchSnapshot();
+  });
 });
