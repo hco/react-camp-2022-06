@@ -26,5 +26,6 @@ describe("<TimeEntryForm />", () => {
 
     // Assert
     screen.getByText(/testing lernen/i);
+    expect(screen.getByRole("textbox")).toHaveValue("Testing lernen");
   });
 });
