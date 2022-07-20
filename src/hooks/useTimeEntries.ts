@@ -1,7 +1,12 @@
 import { TimeEntry } from "../domain/TimeEntry";
 import { useState } from "react";
 
-const useTimeEntries = () => {
+export type UseTimeEntriesReturnValue = {
+  timeEntries: TimeEntry[];
+  addTimeEntry: (timeEntry: TimeEntry) => void;
+};
+
+const useTimeEntries = (): UseTimeEntriesReturnValue => {
   const [timeEntries, setTimeEntries] = useState<TimeEntry[]>([]);
 
   const addTimeEntry = (timeEntry: TimeEntry) => {
