@@ -4,13 +4,6 @@ import TimeEntriesList from "./components/TimeEntriesList";
 import { useState } from "react";
 
 function App() {
-  const timeEntry: TimeEntry = {
-    comment: "React gelernt",
-    id: "",
-    start: new Date(),
-    end: new Date(),
-  };
-
   const [timeEntries, setTimeEntries] = useState([
     {
       id: "1d5829",
