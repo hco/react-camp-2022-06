@@ -42,10 +42,11 @@ describe("<TimeEntryForm />", () => {
       screen.getByRole("textbox", {
         name: /comment/i,
       }),
-      "Testing lernen"
+      "Testing lernen{enter}"
     );
 
-    userEvent.click(screen.getByRole("button"));
+    // Klicken statt enter drücken geht natürlich auch
+    // userEvent.click(screen.getByRole("button"));
 
     // Assert
     expect(onCreateEntryMock).toHaveBeenCalledTimes(1);
