@@ -2,6 +2,7 @@ import TimeEntryForm from "./components/TimeEntryForm";
 import { TimeEntry } from "./domain/TimeEntry";
 import TimeEntriesList from "./components/TimeEntriesList";
 import { useState } from "react";
+import DynamicTimeEntryList from "./components/DynamicTimeEntryList";
 
 function App() {
   const [timeEntries, setTimeEntries] = useState([
@@ -33,6 +34,8 @@ function App() {
     <>
       <TimeEntryForm onCreateEntry={handleCreateEntry} />
       <TimeEntriesList timeEntries={timeEntries} />
+      <hr />
+      <DynamicTimeEntryList />
     </>
   );
 }
