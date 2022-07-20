@@ -20,17 +20,15 @@ describe("<TimeEntryForm />", () => {
   test("after typing into the input field, the preview should show the content of the input field", () => {
     // Arrange
     render(<TimeEntryForm onCreateEntry={() => {}} />);
+    const inputElement = screen.getByRole("textbox", {
+      name: /comment/i,
+    });
 
     // Act
-    userEvent.type(
-      screen.getByRole("textbox", {
-        name: /comment:/i,
-      }),
-      "Testing lernen"
-    );
+    userEvent.type(inputElement, "Testing lernen");
 
     // Assert
     screen.getByText(/testing lernen/i);
-    expect(screen.getByRole("textbox")).toHaveValue("Testing lernen");
+    expect(inputElement).toHaveValue("Testing lernen");
   });
 });
