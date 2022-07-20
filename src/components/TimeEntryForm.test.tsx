@@ -22,7 +22,12 @@ describe("<TimeEntryForm />", () => {
     render(<TimeEntryForm onCreateEntry={() => {}} />);
 
     // Act
-    userEvent.type(screen.getByRole("textbox"), "Testing lernen");
+    userEvent.type(
+      screen.getByRole("textbox", {
+        name: /comment:/i,
+      }),
+      "Testing lernen"
+    );
 
     // Assert
     screen.getByText(/testing lernen/i);
