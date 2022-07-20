@@ -1,5 +1,6 @@
 import TimeEntryForm from "./TimeEntryForm";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("<TimeEntryForm />", () => {
   test("it renders without crashing", () => {
@@ -14,5 +15,13 @@ describe("<TimeEntryForm />", () => {
     });
 
     screen.getByRole("textbox");
+  });
+
+  test("after typing into the input field, the preview should show the content of the input field", () => {
+    render(<TimeEntryForm onCreateEntry={() => {}} />);
+
+    userEvent.type(screen.getByRole("textbox"), "Testing lernen");
+
+    screen.getByText(/testing lernen/i);
   });
 });
