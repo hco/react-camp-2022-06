@@ -18,10 +18,13 @@ describe("<TimeEntryForm />", () => {
   });
 
   test("after typing into the input field, the preview should show the content of the input field", () => {
+    // Arrange
     render(<TimeEntryForm onCreateEntry={() => {}} />);
 
+    // Act
     userEvent.type(screen.getByRole("textbox"), "Testing lernen");
 
+    // Assert
     screen.getByText(/testing lernen/i);
   });
 });
