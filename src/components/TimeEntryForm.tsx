@@ -19,7 +19,6 @@ const TimeEntryForm: React.FunctionComponent<Props> = ({ onCreateEntry }) => {
   };
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(event.target.value);
     setInputValue(event.target.value);
   };
 
