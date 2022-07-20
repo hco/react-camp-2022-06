@@ -31,4 +31,28 @@ describe("<TimeEntryForm />", () => {
     screen.getByText(/testing lernen/i);
     expect(inputElement).toHaveValue("Testing lernen");
   });
+
+  test("that after typing a comment into the text field, an event with that comment is thrown", () => {
+    // Arrange
+    const onCreateEntryMock = jest.fn();
+    render(<TimeEntryForm onCreateEntry={onCreateEntryMock} />);
+
+    // Act
+    userEvent.type(
+      screen.getByRole("textbox", {
+        name: /comment/i,
+      }),
+      "Testing lernen"
+    );
+
+    userEvent.click(screen.getByRole("button"));
+
+    // Assert
+    expect(onCreateEntryMock).toHaveBeenCalledTimes(1);
+    expect(onCreateEntryMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        comment: "Testing lernen",
+      })
+    );
+  });
 });
