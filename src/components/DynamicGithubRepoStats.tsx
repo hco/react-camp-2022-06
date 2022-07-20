@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GithubRepoStats from "./GithubRepoStats";
+import GithubRepoStatsWithHook from "./GithubRepoStatsWithHook";
 
 const DynamicGithubRepoStats: React.FunctionComponent = () => {
   const [inputValue, setInputValue] = useState("");
@@ -16,7 +17,7 @@ const DynamicGithubRepoStats: React.FunctionComponent = () => {
         <button type="submit">Absenden</button>
         <input onChange={(event) => setInputValue(event.target.value)} />
       </form>
-      <GithubRepoStats repo={repo} />
+      <GithubRepoStatsWithHook repo={repo} />
     </div>
   );
 };

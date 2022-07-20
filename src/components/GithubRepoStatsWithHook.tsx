@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import useGithubRepoStats from "../hooks/useGithubRepoStats";
 
 type RepoInformation = {
   stargazers_count: number;
@@ -8,10 +8,10 @@ type Props = {
   repo: string;
 };
 
-const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
-  const { repoInformation } = useGithubRepoStats(props.repo);
+const GithubRepoStatsWithHook: React.FunctionComponent<Props> = (props) => {
+  const { repoInformation, loading } = useGithubRepoStats(props.repo);
 
-  if (!repoInformation) {
+  if (loading || !repoInformation) {
     return <div>Loading…</div>;
   }
 
@@ -23,4 +23,4 @@ const GithubRepoStats: React.FunctionComponent<Props> = (props) => {
   );
 };
 
-export default GithubRepoStats;
+export default GithubRepoStatsWithHook;
