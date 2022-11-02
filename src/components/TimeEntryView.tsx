@@ -6,7 +6,11 @@ interface Props {
 }
 
 const TimeEntryView: React.FunctionComponent<Props> = ({ timeEntry }) => {
-  return <div>{timeEntry.comment}</div>;
+  return (
+    <div>
+      <b>{timeEntry.comment}</b>
+    </div>
+  );
 };
 
 export default TimeEntryView;

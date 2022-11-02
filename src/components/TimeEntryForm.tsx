@@ -8,6 +8,7 @@ type Props = {
 const TimeEntryForm: React.FunctionComponent<Props> = ({ onCreateEntry }) => {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    debugger;
     event.preventDefault();
 
     if (inputValue.trim() === "") {

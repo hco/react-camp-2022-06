@@ -5,7 +5,7 @@ import GithubRepoStats from "./components/GithubRepoStats";
 import { QueryClient, QueryClientProvider } from "react-query";
 import DynamicGithubRepoStats from "./components/DynamicGithubRepoStats";
 import { ReactQueryDevtools } from "react-query/devtools";
-
+import React from "react";
 const queryClient = new QueryClient();
 
 function App() {
